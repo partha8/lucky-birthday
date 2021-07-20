@@ -1,24 +1,67 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from "react";
+import gift from "./image/gift.png";
+import { FaTimes } from "react-icons/fa";
 function App() {
+  const [birthday, setBirthday] = useState();
+  const [luckyNumber, setLuckyNumber] = useState();
+  const [text, setText] = useState("");
+  const [alert, setAlert] = useState(true);
+  const submitHandler = (e) => {
+    e.preventDefault();
+    if (birthday && luckyNumber) {
+      const dateArray = birthday.split("-");
+      let sum = 0;
+      for (let i = 0; i < dateArray.length; i++) {
+        sum += Number(dateArray[i]);
+      }
+      if (sum % Number(luckyNumber) === 0) {
+        setText("Hurray! your birthday is a lucky number! ");
+      } else {
+        setText("Sorry, your birthday is not a lucky number");
+      }
+    } else {
+      setText("Please enter a value!");
+    }
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <section className="form-container">
+        {alert && (
+          <div className="privacy-notice">
+            <h3>Privacy Notice! We are not storing your data</h3>
+            <button style={{ color: "red" }} onClick={() => setAlert(false)}>
+              {" "}
+              <FaTimes />{" "}
+            </button>
+          </div>
+        )}
+        <h1 className='heading' >Is your birthday lucky?</h1>
+        <form onSubmit={submitHandler} className="form">
+          <h3>Enter your birthdate: </h3>
+          <input
+            type="date"
+            className="date-input"
+            value={birthday}
+            onChange={(e) => setBirthday(e.target.value)}
+          />
+          <input
+            type="number"
+            value={luckyNumber}
+            placeholder="Enter your lucky Number"
+            onChange={(e) => setLuckyNumber(e.target.value)}
+          />
+          <button className="submit-btn" type="submit">
+            {" "}
+            check{" "}
+          </button>
+        </form>
+        <h2>{text}</h2>
+      </section>
+      <section className="image-container">
+        <img className="gift-img" src={gift} alt="gift box" />
+      </section>
+      <footer></footer>
+    </main>
   );
 }
 
