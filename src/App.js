@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import gift from "./image/gift.png";
-import { FaTimes } from "react-icons/fa";
+import { FaTimes, FaGithub, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { AiOutlineGlobal } from "react-icons/ai";
 function App() {
   const [birthday, setBirthday] = useState();
   const [luckyNumber, setLuckyNumber] = useState();
@@ -35,7 +36,7 @@ function App() {
             </button>
           </div>
         )}
-        <h1 className='heading' >Is your birthday lucky?</h1>
+        <h1 className="heading">Is your birthday lucky?</h1>
         <form onSubmit={submitHandler} className="form">
           <h3>Enter your birthdate: </h3>
           <input
@@ -60,7 +61,6 @@ function App() {
       <section className="image-container">
         <img className="gift-img" src={gift} alt="gift box" />
       </section>
-      <footer></footer>
     </main>
   );
 }
