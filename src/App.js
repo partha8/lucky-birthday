@@ -26,41 +26,57 @@ function App() {
   };
   return (
     <main>
-      <section className="form-container">
-        {alert && (
-          <div className="privacy-notice">
-            <h3>Privacy Notice! We are not storing your data</h3>
-            <button style={{ color: "red" }} onClick={() => setAlert(false)}>
+      <article className="main-app">
+        <section className="form-container">
+          {alert && (
+            <div className="privacy-notice">
+              <h3>Privacy Notice! We are not storing your data</h3>
+              <button style={{ color: "red" }} onClick={() => setAlert(false)}>
+                {" "}
+                <FaTimes />{" "}
+              </button>
+            </div>
+          )}
+          <h1 className="heading">Is your birthday lucky?</h1>
+          <form onSubmit={submitHandler} className="form">
+            <h3>Enter your birthdate: </h3>
+            <input
+              type="date"
+              className="date-input"
+              value={birthday}
+              onChange={(e) => setBirthday(e.target.value)}
+            />
+            <input
+              type="number"
+              value={luckyNumber}
+              placeholder="Enter your lucky Number"
+              onChange={(e) => setLuckyNumber(e.target.value)}
+            />
+            <button className="submit-btn" type="submit">
               {" "}
-              <FaTimes />{" "}
+              check{" "}
             </button>
-          </div>
-        )}
-        <h1 className="heading">Is your birthday lucky?</h1>
-        <form onSubmit={submitHandler} className="form">
-          <h3>Enter your birthdate: </h3>
-          <input
-            type="date"
-            className="date-input"
-            value={birthday}
-            onChange={(e) => setBirthday(e.target.value)}
-          />
-          <input
-            type="number"
-            value={luckyNumber}
-            placeholder="Enter your lucky Number"
-            onChange={(e) => setLuckyNumber(e.target.value)}
-          />
-          <button className="submit-btn" type="submit">
-            {" "}
-            check{" "}
-          </button>
-        </form>
-        <h2>{text}</h2>
-      </section>
-      <section className="image-container">
-        <img className="gift-img" src={gift} alt="gift box" />
-      </section>
+          </form>
+          <h2>{text}</h2>
+        </section>
+        <section className="image-container">
+          <img className="gift-img" src={gift} alt="gift box" />
+        </section>
+      </article>
+      <footer>
+        <a href="https://twitter.com/partha_sarma8">
+          <FaTwitter />
+        </a>
+        <a href="https://twitter.com/partha_sarma8">
+          <FaGithub />
+        </a>
+        <a href="https://twitter.com/partha_sarma8">
+          <FaLinkedin />
+        </a>
+        <a href="https://twitter.com/partha_sarma8">
+          <AiOutlineGlobal />
+        </a>
+      </footer>
     </main>
   );
 }
