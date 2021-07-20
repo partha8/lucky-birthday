@@ -33,7 +33,7 @@ function App() {
               <h3>Privacy Notice! We are not storing your data</h3>
               <button style={{ color: "red" }} onClick={() => setAlert(false)}>
                 {" "}
-                <FaTimes />{" "}
+                <FaTimes className="close-btn" />{" "}
               </button>
             </div>
           )}
@@ -59,21 +59,19 @@ function App() {
           </form>
           <h2>{text}</h2>
         </section>
-        <section className="image-container">
-          <img className="gift-img" src={gift} alt="gift box" />
-        </section>
+        <img className="gift-img" src={gift} alt="gift box" />
       </article>
       <footer>
         <a href="https://twitter.com/partha_sarma8">
           <FaTwitter />
         </a>
-        <a href="https://twitter.com/partha_sarma8">
+        <a href="https://github.com/partha8">
           <FaGithub />
         </a>
-        <a href="https://twitter.com/partha_sarma8">
+        <a href="https://www.linkedin.com/in/partha8/">
           <FaLinkedin />
         </a>
-        <a href="https://twitter.com/partha_sarma8">
+        <a href="https://parthasarma.netlify.app/">
           <AiOutlineGlobal />
         </a>
       </footer>
